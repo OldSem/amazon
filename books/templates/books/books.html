@@ -1,0 +1,45 @@
+﻿<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+  <style>
+    th {
+      cursor: pointer;
+    }
+
+    th:hover {
+      background: yellow;
+    }
+  </style>
+
+</head>
+
+{% block content %}
+  <meta charset="utf-8">
+  <table border=2>  
+    <thead>
+     <tr>
+      <th data-type="string">Название</th>
+      <th data-type="string">Автор</th>
+      <th data-type="number">isbn</th>
+      <th data-type="number">Цена</th>
+      <th>Редактировать</th>
+
+     </tr>
+    </thead> 
+    
+       {% for book in books %}
+         <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.isbn }}</td>
+            <td>{{ book.price }}</td>
+            <td><a class="btn btn-default" href="{% url 'book_edit' nn=book.isbn %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+         </tr>
+       {% endfor %}
+
+  </table>
+  <form>
+    <input type="button" value="Добавить" onClick='location.href="../new_book/"'>
+  </form>
+{% endblock %}

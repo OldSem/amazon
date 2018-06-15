@@ -1,0 +1,18 @@
+﻿{% load staticfiles %}
+
+<head>
+	<meta charset="UTF-8">
+	<title>home page</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+    {% block content %}
+	<meta charset="utf-8">
+        <h1>Книга</h1>
+        <form method="POST" class="post-form" autocomplete="off">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Добавить</button>
+        </form>
+
+    {% endblock %}
+
+
