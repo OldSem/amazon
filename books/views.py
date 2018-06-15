@@ -39,3 +39,10 @@ def book_edit(request, nn):
     else:
         form = BookForm(instance=book[0])
     return render(request, 'books/book_edit.html', {'form': form})
+
+def book_del(request, nn):
+    book = get_list_or_404(Books, isbn=nn)
+    book[0].delete()
+    books = Books.objects.all
+
+    return render(request, 'books/books.html', {'books': books})

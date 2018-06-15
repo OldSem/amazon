@@ -34,7 +34,8 @@
             <td>{{ book.author }}</td>
             <td>{{ book.isbn }}</td>
             <td>{{ book.price }}</td>
-            <td><a class="btn btn-default" href="{% url 'book_edit' nn=book.isbn %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td><a class="btn btn-default" href="{% url 'book_edit' nn=book.isbn %}"><span class="glyphicon glyphicon-pencil"></span></a>
+            <a class="btn btn-default" href="{% url 'book_del' nn=book.isbn %}"><span class="glyphicon glyphicon-remove"></span></a></td>
          </tr>
        {% endfor %}
 
