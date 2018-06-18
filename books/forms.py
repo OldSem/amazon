@@ -4,6 +4,9 @@ from django import forms
 from .models import Books
 
 
+class FilterForm(forms.Form):
+    order = forms.ChoiceField(label = 'Дата публикации',widget=forms.RadioSelect, choices=(('Inc', u'По возростанию',), ('Desc', u'По убыванию',)))
+
 
 class BookForm(forms.ModelForm):
 

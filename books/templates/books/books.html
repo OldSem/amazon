@@ -1,4 +1,4 @@
-﻿<head>
+<head>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
@@ -15,7 +15,17 @@
 </head>
 
 {% block content %}
+
+
   <meta charset="utf-8">
+
+
+  <form method="POST" class="post-form" autocomplete="off">{% csrf_token %}
+
+       {{ form }}
+       <button type="submit" class="save btn btn-default">Сортировать</button>
+  </form>
+
   <table border=2>  
     <thead>
      <tr>

@@ -9,11 +9,40 @@ import json
 from django.core.serializers.json import DjangoJSONEncoder
 
 from .models import Books
-from .forms import BookForm
+from .forms import BookForm,FilterForm
+
+#def books_list(request):
+#    books = Books.objects.all
+#    return render(request, 'books/books.html', {'books': books})
+
 
 def books_list(request):
-    books = Books.objects.all
-    return render(request, 'books/books.html', {'books': books})
+
+    book = Books.objects.order_by('published')
+
+
+
+    if request.method == "POST":
+        form = FilterForm(request.POST)
+        if form.is_valid():
+
+
+            order=form.cleaned_data['order']
+            if order == 'Inc':
+                book = Books.objects.order_by('published')
+            else:
+                book = Books.objects.order_by('-published')
+
+            return render(request, 'books/books.html', {'form': form, 'books': book})
+
+
+    else:
+        form = FilterForm()
+
+
+    return render(request, 'books/books.html', {'form': form,'books':book})
+
+
 
 
 def new_book(request):
