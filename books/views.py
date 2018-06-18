@@ -2,6 +2,7 @@
 from datetime import datetime, date, time
 from django.utils import timezone
 
+
 from django.shortcuts import render, get_object_or_404,redirect,get_list_or_404
 from django.http import HttpResponse
 import json
@@ -19,7 +20,9 @@ def new_book(request):
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
+
             book = form.save(commit=False)
+            book.published = form.cleaned_data['published']
             book.save()
             return redirect('books_list')
 
@@ -40,9 +43,7 @@ def book_edit(request, nn):
         form = BookForm(instance=book[0])
     return render(request, 'books/book_edit.html', {'form': form})
 
-def book_del(request, nn):
+def book_del(request,nn):
     book = get_list_or_404(Books, isbn=nn)
     book[0].delete()
-    books = Books.objects.all
-
-    return render(request, 'books/books.html', {'books': books})
+    return redirect('books_list')

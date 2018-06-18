@@ -23,6 +23,7 @@
       <th data-type="string">Автор</th>
       <th data-type="number">isbn</th>
       <th data-type="number">Цена</th>
+      <th data-type="date">Дата публикации</th>
       <th>Редактировать</th>
 
      </tr>
@@ -34,6 +35,7 @@
             <td>{{ book.author }}</td>
             <td>{{ book.isbn }}</td>
             <td>{{ book.price }}</td>
+            <td>{{ book.published }}</td>
             <td><a class="btn btn-default" href="{% url 'book_edit' nn=book.isbn %}"><span class="glyphicon glyphicon-pencil"></span></a>
             <a class="btn btn-default" href="{% url 'book_del' nn=book.isbn %}"><span class="glyphicon glyphicon-remove"></span></a></td>
          </tr>
