@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.conf.urls import url
+from django.conf.urls import url,include
 from . import views
 
 
@@ -13,4 +13,7 @@ urlpatterns = [
     url(r'^book/(?P<nn>[0-9]+)/del/$', views.book_del, name='book_del'),
     url(r'^book/(?P<nn>[0-9]+)/edit/$', views.book_edit, name='book_edit'),
 
+]
+urlpatterns += [
+    url(r'^accounts/', include('django.contrib.auth.urls')),
 ]

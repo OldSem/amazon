@@ -2,7 +2,7 @@
 from datetime import datetime, date, time
 from django.utils import timezone
 
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404,redirect,get_list_or_404
 from django.http import HttpResponse
 import json
@@ -44,7 +44,7 @@ def books_list(request):
 
 
 
-
+@login_required
 def new_book(request):
     if request.method == "POST":
         form = BookForm(request.POST)
@@ -59,7 +59,7 @@ def new_book(request):
         form = BookForm()
     return render(request, 'books/new_book.html', {'form': form})
 
-
+@login_required
 def book_edit(request, nn):
     book = get_list_or_404(Books, isbn=nn)
     if request.method == "POST":
@@ -72,6 +72,7 @@ def book_edit(request, nn):
         form = BookForm(instance=book[0])
     return render(request, 'books/book_edit.html', {'form': form})
 
+@login_required
 def book_del(request,nn):
     book = get_list_or_404(Books, isbn=nn)
     book[0].delete()
