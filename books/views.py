@@ -11,7 +11,7 @@ from django.http import HttpResponse
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
-from .models import Books,Document
+from .models import Books
 from .forms import BookForm,FilterForm
 
 #def books_list(request):
