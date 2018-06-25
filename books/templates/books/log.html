@@ -1,0 +1,8 @@
+{% block content %}
+   {% for log in logs %}
+   		{{ log }} </br>
+   {% endfor %}
+
+<a href="{% url 'books_list' %}">К списку</a>
+
+{% endblock %}'

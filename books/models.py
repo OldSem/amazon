@@ -19,4 +19,5 @@ class Books(models.Model):
 
     def __str__(self):
         return str(self.title)
+
 # Create your models here.

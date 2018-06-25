@@ -11,7 +11,7 @@ from django.http import HttpResponse
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 
-from .models import Books
+from .models import Books,Document
 from .forms import BookForm,FilterForm
 
 #def books_list(request):
@@ -99,3 +99,12 @@ def book_del(request,nn):
     ip = request.META.get('REMOTE_ADDR', '') or request.META.get('HTTP_X_FORWARDED_FOR', '')
     logmodels.debug('%s %s %s' % (request.user, request.path, ip))
     return redirect('books_list')
+
+def log_view(request):
+    return HttpResponse(content, content_type='user.log')
+
+@login_required
+def log_view(request):
+    logs = open("users.log", "rb").read()
+    logs = logs.split('\r\n')
+    return render(request, 'books/log.html', {'logs': logs})
