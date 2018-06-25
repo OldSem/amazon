@@ -106,5 +106,5 @@ def log_view(request):
 @login_required
 def log_view(request):
     logs = open("users.log", "r").read()
-    logs = logs.split('\r\n')
+    logs = logs.split('\n')
     return render(request, 'books/log.html', {'logs': logs})
