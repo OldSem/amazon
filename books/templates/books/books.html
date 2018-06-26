@@ -78,7 +78,7 @@
   </table>
   {% if user.is_authenticated %}<form>
     <input type="button" value="Добавить" onClick='location.href="../new_book/"'></br>
-    <a href="{% url 'log_view' %}">Log</a>
+    <a href="{% url 'log_view' nn=1 %}">Log</a>
   </form>{% endif %} 
 {% endblock %}'
   <footer>

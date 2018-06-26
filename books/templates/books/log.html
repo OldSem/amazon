@@ -3,6 +3,11 @@
    		{{ log }} </br>
    {% endfor %}
 
+   {% for dec in decs %}
+   		<a href="{% url 'log_view' nn=dec %}">{{ dec }}</a>
+   {% endfor %}
+</br>
+</br>
 <a href="{% url 'books_list' %}">К списку</a>
 
 {% endblock %}'

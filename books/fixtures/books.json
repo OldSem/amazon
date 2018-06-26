@@ -1,0 +1,22 @@
+[  
+   {  
+      "model":"books.books",
+      "pk":21,
+      "fields":{  
+         "title":"\u0410\u043d\u043d\u0430 \u041a\u0430\u0440\u0435\u043d\u0438\u043d\u0430",
+         "author":"\u0422\u043e\u043b\u0441\u0442\u043e\u0439",
+         "isbn":"21",
+         "price":"35"
+      }
+   },
+   {  
+      "model":"books.books",
+      "pk":22,
+      "fields":{  
+         "title":"\u0412\u043e\u0439\u043d\u0430 \u0438 \u041c\u0438\u0440",
+         "author":"\u0422\u043e\u043b\u0441\u0442\u043e\u0439",
+         "isbn":"22",
+         "price":"45"
+      }
+   }
+]

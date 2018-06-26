@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import math
 from datetime import datetime, date, time
 import logging
 import logging.handlers
@@ -104,7 +105,11 @@ def log_view(request):
     return HttpResponse(content, content_type='user.log')
 
 @login_required
-def log_view(request):
+def log_view(request,nn):
+    nn=int(nn)
     logs = open("users.log", "r").read()
     logs = logs.split('\n')
-    return render(request, 'books/log.html', {'logs': logs})
+    decs = [i for i in range(1,math.trunc(round(logs.__len__()/10+0.5))+1)]
+    logs = logs[nn*10-10:nn*10]
+
+    return render(request, 'books/log.html', {'logs': logs, 'decs': decs})
